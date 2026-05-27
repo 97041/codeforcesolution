@@ -2,15 +2,28 @@
 
 
 int solveoperation(int arr[],int firsti,int lasti,int opc){
-    int flag=0;
-    if(arr[firsti]%2==0){
-       arr[firsti]=arr[firsti]/2;
+    
+    for(int i=0;i<lasti;i++){
+        if(arr[i]%2==0){
+            arr[i]=arr[i]/2;
+           
+        }
+        else{
+            return opc;
+        }
     }
-    if(arr[firsti])
+    opc++;
+
+    
+
+    solveoperation(arr,firsti,lasti,opc);
+
+    
 }
 
 int main(){
     int n;
+    scanf("%d", &n);
     int arr[n];
 
     for(int i=0;i<n;i++){
@@ -19,7 +32,9 @@ int main(){
 
     int opc=0;
 
-    int operation=solveoperation(arr,0,n,opc);
+    int returnval= solveoperation(arr,0,n,opc);
+
+    printf("%d",returnval);
 
 
 
