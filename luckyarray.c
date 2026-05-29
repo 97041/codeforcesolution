@@ -1,7 +1,8 @@
 #include <stdio.h>
 
 int main(){
-    int freqarr[200001] = {0};
+   
+   
 
     int n;
     scanf("%d", &n);
@@ -12,37 +13,35 @@ int main(){
         scanf("%d",&arr[i]);
     }
 
-    int max=0;
+    int min=arr[0];
 
-      for(int i=0;i<n;i++){
-        if(arr[i]>max){
-            max=arr[i];
+      for(int i=0;i<n-1;i++){
+
+        for(int j=i+1;j<n;j++){
+            if(min>arr[j]){
+                min=arr[j];
+            }
         }
+
+
+       
     }
+    int count =0;
 
     for(int i=0;i<n;i++){
-    
-            freqarr[arr[i]]++;
-    
-    }    
-                    
-    int valx;
 
-    for(int i=0;i<=max;i++){
-        
-       if(freqarr[i]>0){
-          valx=freqarr[i];
-          break;
-         
-       }
+        if(min==arr[i]){
+            count++;
+        }
+
     }
 
-   if(valx%2==1){
-    printf("Lucky");
-   }
-   else{
-    printf("Unlucky");
-   }
+    if(count%2==1){
+        printf("Lucky");
+    }
+    else{
+        printf("Unlucky");
+    }
 
 
 
